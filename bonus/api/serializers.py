@@ -16,7 +16,12 @@ class OperationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Operation
-        fields = ['user', 'method', 'count', 'desc']
+        fields = ['user', 'method', 'count', 'desc', 'dt']
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['dt'] = instance.dt.strftime('%d.%m.%Y %H:%M:%S')
+        return representation
 
 
 class UserSerializer(serializers.ModelSerializer):
