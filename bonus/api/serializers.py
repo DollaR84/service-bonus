@@ -26,8 +26,7 @@ class OperationSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     bonus = BonusSerializer(many=False)
-    operations = OperationSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'bonus', 'operations']
+        fields = ['id', 'username', 'bonus']
