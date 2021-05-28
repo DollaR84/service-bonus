@@ -9,7 +9,10 @@ Created on 26.05.2021
 
 from tasker.celery import app
 
+from tasker.task import api
+
 
 @app.task
-def add(x, y):
-    return x + y
+def update():
+    data = api.get_users_data()
+    api.set_users_ch(data)
