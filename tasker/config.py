@@ -10,6 +10,14 @@ Created on 26.05.2021
 import os
 
 
+class PostgresConfig:
+    HOST = os.getenv('PGDBHOST')
+    PORT = os.getenv('PGDBPORT')
+    DBNAME = os.getenv('PGDBNAME')
+    USER = os.getenv('PGDBUSER')
+    PASSWORD = os.getenv('PGDBPASSWORD')
+
+
 class ClickHouseConfig:
     HOST = os.getenv('CHHOST')
     PORT = os.getenv('CHPORT')
@@ -30,7 +38,3 @@ class RabbitMQConfig:
     VHOST = os.getenv('RMQVHOST')
     USER = os.getenv('RMQUSER')
     PASSWORD = os.getenv('RMQPASSWORD')
-
-
-class BonusAPIConfig:
-    HOST = os.getenv('APIHOST')
