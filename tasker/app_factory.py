@@ -31,4 +31,13 @@ def make_app():
         Queue('low_queue', web_exchange, routing_key='low_task'),
     )
 
+    app.conf.beat_schedule = {
+        'task-name': {
+            'task': 'tasker.task.tasks.update',
+            'schedule': 60.0,
+            'args': (),
+        },
+    }
+    app.conf.timezone = 'UTC'
+
     return app
